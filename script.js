@@ -164,7 +164,7 @@ function setup() {
     h0.drawMainSpot();
     h0.drawResponseSpots();
 
-save("Eye-of-Hawkins.png")
+  // save("Eye-of-Hawkins.png")
 }
 
 function draw() {
