@@ -26,7 +26,8 @@ class Hawkins {
         pop();
         
     }
-    drawResponseSpots() {
+    
+    /* drawResponseSpots() {
         // will make 24 circle spots in a circular shape, all in this color, relevant as output on this frequency
         // the angle that we had, will now be the radius -> outRadius
         // and we loop through the angels of the list just like that -> angels (going from 3h)
@@ -39,7 +40,7 @@ class Hawkins {
             this.drawResponseSpot(angels[a],this.hue) 
         }
     }
-
+*/
     
     drawMainSpot() {
         fill(this.fillColor);
@@ -59,7 +60,7 @@ class Hawkins {
        // strokeWeight(1)
        //  stroke("grey");
         noStroke();
-        arc(400, 400, 320,320 ,this.angle -2 , this.angle + 2  ,PIE);
+        arc(width/2, height/2, 320,320 ,this.angle -2 , this.angle + 2  ,PIE);
     }
 
      drawBigPie() {
