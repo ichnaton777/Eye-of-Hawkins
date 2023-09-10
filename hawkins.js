@@ -45,20 +45,20 @@ class Hawkins {
         
     }
     drawMainIcon() {
-        fill(this.fillColor);
+        noFill();
         stroke(this.fillColor)
-        noStroke();
+        strokeWeight(1)
         push();
         translate(width/2,height/2);
         rotate(this.angle);   // this is our wheel trick
-       // circle(180,0,24);
-        textSize(20);
+        textSize(sliderIconSize.value());
         textFont(noto);
         push();
         translate(180,0)
+        circle(0,0,sliderIconSize.value() + 8); // not exactly sharply surrounding actually
         rotate(-this.angle);  // rotate the icon itself back
-      //  text(this.icon, 160, 8);        
-        text(this.icon, -10, 8);        
+        fill(this.fillColor);
+        text(this.icon, -12, 6);        
         pop(); // icon rotation
         pop(); // wheel rotation
     }
@@ -190,7 +190,7 @@ class Hawkins {
         this.angle = this.getAngle();
         this.fillColor = color(this.setRealHue(this.hue), 100,100)
          this.icon = icon;
-        console.log("created: " + this.emotion + "\nhue:" + this.hue + " angle:" + this.angle + " fillColor:" + this.fillColor.toString('hsb') + "\n\n")
+        console.log("created: " + this.emotion + " " + this.icon + "\nhue:" + this.hue + " angle:" + this.angle + " fillColor:" + this.fillColor.toString('hsb') + "\n\n")
     }
     
     

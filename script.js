@@ -7,6 +7,7 @@ let objects = {}; // This will hold all of your objects
 let buttonHawk24;
 let buttonSD;
 let noto;
+let sliderIconSize;
 
 
 
@@ -15,6 +16,8 @@ function preload() {
 
     hData24 = loadTable('/data/hsb-hawkins-24.csv', 'csv', 'header');
     sdData = loadTable('/data/spiraldynamics.csv', 'csv', 'header');
+    noto = loadFont("/fonts/Noto_Emoji/NotoEmoji-VariableFont_wght.ttf")
+
 }
 
 function setup() {
@@ -23,7 +26,6 @@ function setup() {
     background(32);
     colorMode(HSB)
     angleMode(DEGREES)
-    noto = loadFont("/fonts/Noto_Emoji/NotoEmoji-VariableFont_wght.ttf")
     
     
     buttonHawk24 = createButton('Hawkins (24)');
@@ -35,6 +37,10 @@ function setup() {
     buttonReset = createButton('Reset');
     buttonReset.position(1100, 300);
     buttonReset.mousePressed(resetIt);
+    sliderIconSize = createSlider(4, 48, 20, 4);
+    sliderIconSize.position(1100, 150);
+    sliderIconSize.style('width', '80px');
+    
 }
 
 
@@ -74,6 +80,6 @@ function SD() {
 }
 
 function resetIt() {
-    background(180);
+    background(32);
     objects = {};
 }
