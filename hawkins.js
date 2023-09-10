@@ -13,6 +13,8 @@ class Hawkins {
     key;         // key to transcend to next level
     experience;  // what we experience
     location;    // where we are
+    icon;        // emoticon, actually a character like 🦁
+
 
     drawResponseSpot(angel, radius) {
         // we have already swapped angel and radius
@@ -27,22 +29,10 @@ class Hawkins {
         
     }
     
-    /* drawResponseSpots() {
-        // will make 24 circle spots in a circular shape, all in this color, relevant as output on this frequency
-        // the angle that we had, will now be the radius -> outRadius
-        // and we loop through the angels of the list just like that -> angels (going from 3h)
-        // typo intended
-    
-        let angels = [270,252,243,234,216,210.6,198, 187.2, 180,162, 150,135,123,105,90,75,60,45,30,15,0,150,324,306,272]
-        let a;
-        for (a=0; a < angels.length; a++) {
-            // works but fails this.drawResponseSpot(angels[a],this.angle) 
-            this.drawResponseSpot(angels[a],this.hue) 
-        }
-    }
-*/
+
     
     drawMainSpot() {
+        // no longer in use now we put the icon there
         fill(this.fillColor);
        // fill("purple")
         noStroke();
@@ -53,6 +43,24 @@ class Hawkins {
         circle(180,0,20);
         pop();
         
+    }
+    drawMainIcon() {
+        fill(this.fillColor);
+        stroke(this.fillColor)
+        noStroke();
+        push();
+        translate(width/2,height/2);
+        rotate(this.angle);   // this is our wheel trick
+       // circle(180,0,24);
+        textSize(20);
+        textFont(noto);
+        push();
+        translate(180,0)
+        rotate(-this.angle);  // rotate the icon itself back
+      //  text(this.icon, 160, 8);        
+        text(this.icon, -10, 8);        
+        pop(); // icon rotation
+        pop(); // wheel rotation
     }
     
     drawPie() {
@@ -173,7 +181,7 @@ class Hawkins {
         
     }
     
-     constructor (H,E) {
+     constructor (H,E,icon) {
         this.hue = H;
         this.emotion = E;
        
@@ -181,6 +189,7 @@ class Hawkins {
         this.quadrant = this.getQuadrant(this.hue)
         this.angle = this.getAngle();
         this.fillColor = color(this.setRealHue(this.hue), 100,100)
+         this.icon = icon;
         console.log("created: " + this.emotion + "\nhue:" + this.hue + " angle:" + this.angle + " fillColor:" + this.fillColor.toString('hsb') + "\n\n")
     }
     

@@ -6,6 +6,7 @@ let sdData;
 let objects = {}; // This will hold all of your objects
 let buttonHawk24;
 let buttonSD;
+let noto;
 
 
 
@@ -19,9 +20,11 @@ function preload() {
 function setup() {
     fillColor = "purple"
     createCanvas(1200, 800);
-    background(180);
+    background(32);
     colorMode(HSB)
     angleMode(DEGREES)
+    noto = loadFont("/fonts/Noto_Emoji/NotoEmoji-VariableFont_wght.ttf")
+    
     
     buttonHawk24 = createButton('Hawkins (24)');
     buttonHawk24.position(1100, 50);
@@ -46,8 +49,10 @@ function Hawk24() {
         let consciousnessLevel = hData24.get(r, "Level of Consciousness");
         let hNumber = hData24.get(r, "Energetic Frequency");
         let objectName = hData24.get(r, "ObjectName"); // Get the ObjectName from the CSV
-        objects[objectName] = new Hawkins(hNumber, consciousnessLevel);
-        objects[objectName].drawMainSpot();
+        let icon = hData24.get(r, "Emoji");
+        objects[objectName] = new Hawkins(hNumber, consciousnessLevel,icon);
+      //  objects[objectName].drawMainSpot();
+        objects[objectName].drawMainIcon();
         objects[objectName].drawPie();
         objects[objectName].drawResponseSpot(objects[objectName].angle,objects[objectName].hue);
     }
